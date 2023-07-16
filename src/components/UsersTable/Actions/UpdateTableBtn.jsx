@@ -7,12 +7,8 @@ import {
 } from '@ant-design/icons';
 import { styled } from 'styled-components';
 
-export default function UpdateTableBtn() {
+export default function UpdateTableBtn({updateTable}) {
     const dispatch = useDispatch()
-
-    const updateTable = () => {
-        dispatch(UserActionCreators.getUsers())
-    }
 
   return (
     <SButton onClick={updateTable}>

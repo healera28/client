@@ -9,7 +9,7 @@ export default function DownloadBtn() {
   const users = useSelector(state => state.user.users)
 
   const handleDownload = () => {
-    const csvData = objectToCsv(users)
+    const csvData = objectToCsv(users.users)
     const csvBlob = new Blob([csvData], { type: 'text/csv' })
     const csvUrl = URL.createObjectURL(csvBlob)
     

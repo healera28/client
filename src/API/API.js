@@ -49,9 +49,9 @@ class API {
         }
     }
 
-    async getUsers() {
+    async getUsers(params) {
         try {
-            const response = await axios(`${ENDPOINT}/users`)
+            const response = await axios(`${ENDPOINT}/users`, {params})
             return response
         }catch(e) {
             return ApiError.BadRequest({status: e.response.data.status, message: e.response.data.message})

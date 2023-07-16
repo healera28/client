@@ -1,7 +1,7 @@
 import ApiError from "../Exeptions/exeptions"
 import axios from 'axios'
 
-const ENDPOINT = "http://localhost:8000/api"
+const ENDPOINT = "https://healera.ru/api"
 
 class API {
     async createUser(body) {

@@ -23,9 +23,9 @@ export default function UsersTable() {
     console.log(users)
 
     const handlePageChange = page => {
-        dispatch(UserActionCreators.getUsers({page, search: query}))
+        dispatch(UserActionCreators.getUsers({ page, search: query }))
     }
-    
+
     const updateTable = () => {
         dispatch(UserActionCreators.getUsers())
         setQuery("")
@@ -34,7 +34,7 @@ export default function UsersTable() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        dispatch(UserActionCreators.getUsers({search: query}))
+        dispatch(UserActionCreators.getUsers({ search: query }))
     }
 
 
@@ -46,31 +46,25 @@ export default function UsersTable() {
                 <UpdateTableBtn updateTable={updateTable} />
                 <AddUserBtn />
                 <DownloadBtn />
-                <Search 
+                <Search
                     handleSubmit={handleSubmit}
-                    query={query} 
-                    setQuery={setQuery} 
+                    query={query}
+                    setQuery={setQuery}
                 />
             </TableButtons>
-            {
-                users.pages && 
-                <STable
-                    dataSource={users.users}
-                    columns={columns}
-                    loading={loading}
-                    pagination={false}
-                />
-            }
-            {
-                users.pages && 
-                    <Pagination 
-                        style={{alignSelf: "flex-end"}}
-                        current={users.page} 
-                        total={users.usersCount}
-                        pageSize={3}
-                        onChange={handlePageChange}
-                    />
-            }
+            <STable
+                dataSource={users.users}
+                columns={columns}
+                loading={loading}
+                pagination={false}
+            />
+            <Pagination
+                style={{ alignSelf: "flex-end" }}
+                current={users.page}
+                total={users.usersCount}
+                pageSize={3}
+                onChange={handlePageChange}
+            />
         </SUsersTable>
     )
 }

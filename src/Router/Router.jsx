@@ -6,7 +6,7 @@ import { styled } from 'styled-components'
 
 export default function Router() {
   const isAuth = useSelector(state => state.auth.isAuth)
-
+  
   return (
     <Content>
       <Routes>
